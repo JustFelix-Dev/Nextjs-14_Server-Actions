@@ -14,6 +14,7 @@ const MainHeader = () => {
   return (
     <>
         <MainBackground/>
+        
        <header className={classes.header}>
         <Link className={classes.logo} href='/'>
             <Image src={logoImg} alt="A plate with food on it" priority />
