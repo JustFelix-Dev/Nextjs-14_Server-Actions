@@ -4,10 +4,26 @@ import Image from 'next/image';
 import { getMeal } from '@/lib/meals';
 import { notFound } from 'next/navigation';
 
+// export const metadata = {
+//   title: 'All meals',
+//   description: 'Delicious meals, shared by a food-loving community.',
+// };
+
+export async function generateMetaData({ params }){
+  const slug = params.mealSlug;
+  const meal = getMeal(slug);
+
+return {
+  title: meal.title,
+  decsription: meal.summary
+}
+}
+
 const MealDetailPage = ({ params }) => {
     const slug = params.mealSlug;
     const meal = getMeal(slug);
     
+
     if(!meal){
         notFound()
     }
